@@ -12,6 +12,6 @@ class EquipeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }

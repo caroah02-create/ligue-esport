@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipe extends Model
 {
-    /** @use HasFactory<\Database\Factories\EquipeFactory> */
     use HasFactory;
+
+    protected $fillable = ['nom', 'tag', 'ville', 'description'];
+
+    public function joueurs()
+    {
+        return $this->hasMany(Joueur::class);
+    }
 }
