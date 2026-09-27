@@ -15,4 +15,11 @@ class Equipe extends Model
     {
         return $this->hasMany(Joueur::class);
     }
+
+    public function tournois()
+    {
+        return $this->belongsToMany(Tournoi::class)
+            ->withPivot('classement')
+            ->withTimestamps();
+    }
 }
