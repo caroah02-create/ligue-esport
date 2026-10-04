@@ -18,7 +18,10 @@ class EquipeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nom' => fake()->unique()->company(),
+            'tag' => strtoupper(fake()->unique()->lexify('???')),
+            'ville' => fake()->city(),
+            'description' => fake()->paragraph(),
         ];
     }
 }

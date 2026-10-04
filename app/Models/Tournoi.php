@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Tournoi extends Model
 {
@@ -19,6 +20,21 @@ class Tournoi extends Model
             'date_fin' => 'date',
             'bourse' => 'decimal:2',
         ];
+    }
+
+    protected function statut(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if (today()->lt($this->date_debut)) {
+                    return 'À venir';
+                }
+                if (today()->gt($this->date_fin)) {
+                    return 'Terminé';
+                }
+                return 'En cours';
+            }
+        );
     }
 
     public function equipes()

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Joueur extends Model
 {
@@ -16,6 +17,15 @@ class Joueur extends Model
         return [
             'date_naissance' => 'date',
         ];
+    }
+
+    protected function age(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                return $this->date_naissance->age;
+            }
+        );
     }
 
     public function equipe()
