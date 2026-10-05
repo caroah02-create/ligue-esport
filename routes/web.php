@@ -2,6 +2,7 @@
 
 use App\Models\Equipe;
 use App\Models\Tournoi;
+use App\Http\Controllers\TournoiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,4 +33,6 @@ Route::get('/equipes/{equipe}', function (Equipe $equipe) {
     $equipe->load(['joueurs', 'tournois']);
     return view('equipes.show', ['equipe' => $equipe]);
 });
+
+Route::resource('tournois', TournoiController::class);
 

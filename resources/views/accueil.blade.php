@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-3xl font-bold mb-8">Bienvenue dans la ligue</h1>
+    <h1 class="text-3xl font-bold mb-8 text-center">Bienvenue dans la ligue</h1>
 
     <h2 class="text-2xl font-bold mb-4">Prochains tournois</h2>
     @forelse ($tournois as $tournoi)
