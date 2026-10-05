@@ -16,7 +16,7 @@ class JoueurSeeder extends Seeder
     public function run(): void
     {
         foreach (Equipe::all() as $equipe) {
-            Joueur::factory()->count(3, 7)->for($equipe)->create();
+            Joueur::factory()->count(rand(3, 7))->for($equipe)->create();
         }
     }
 }
