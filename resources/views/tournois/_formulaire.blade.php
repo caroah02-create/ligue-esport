@@ -49,5 +49,9 @@
     @empty
         <p class="text-slate-600">Aucune équipe disponible.</p>
     @endforelse
-    @error('equipes.*') <p class="text-red-700 text-sm">{{ $message }}</p> @enderror
+    @foreach ($errors->get('equipes.*') as $messages)
+        @foreach ($messages as $message)
+            <p class="text-red-700 text-sm">{{ $message }}</p>
+        @endforeach
+    @endforeach
 </fieldset>

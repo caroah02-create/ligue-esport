@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\EquipeComplete;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,7 +26,7 @@ class TournoiRequest extends FormRequest
             'bourse' => ['required', 'numeric', 'min:0', 'decimal:0,2'],
             'nb_equipes_max' => ['required', 'integer', 'min:2', 'max:64'],
             'equipes' => ['nullable', 'array'],
-            'equipes.*' => ['integer', 'exists:equipes,id'],
+            'equipes.*' => ['integer', 'exists:equipes,id', new EquipeComplete()],
         ];
     }
 
@@ -42,6 +43,7 @@ class TournoiRequest extends FormRequest
             'nb_equipes_max.required' => 'Indiquez le nombre maximal d\'équipes.',
             'nb_equipes_max.min' => 'Un tournoi doit accueillir au moins 2 équipes.',
             'equipes.*.exists' => 'Une des équipes choisies n\'existe pas.',
+            'equipes.*.equipe_complete' => 'Une des équipes choisies n\'a pas assez de joueurs.',       
         ];
     }
 }

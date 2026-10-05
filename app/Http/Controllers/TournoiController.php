@@ -50,7 +50,9 @@ class TournoiController extends Controller
      */
     public function show(Tournoi $tournoi)
     {
-        //
+        $tournoi->load('equipes');
+
+        return view('tournois.show', ['tournoi' => $tournoi]);
     }
 
     /**
@@ -58,15 +60,24 @@ class TournoiController extends Controller
      */
     public function edit(Tournoi $tournoi)
     {
-        //
+        return view('tournois.edit', [
+            'tournoi' => $tournoi,
+            'equipes' => Equipe::withCount('joueurs')->orderBy('nom')->get(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tournoi $tournoi)
+    public function update(TournoiRequest $requete, Tournoi $tournoi): RedirectResponse
     {
-        //
+        $tournoi->update($requete->validated());
+        $tournoi->equipes()->sync($requete->input('equipes', []));
+
+        return redirect()
+            ->route('tournois.show', $tournoi)
+            ->with('succes', "Le tournoi « {$tournoi->nom} » a été modifié.");
+
     }
 
     /**
@@ -74,6 +85,10 @@ class TournoiController extends Controller
      */
     public function destroy(Tournoi $tournoi)
     {
-        //
+        $tournoi->delete();
+
+        return redirect()
+            ->route('tournois.index')
+            ->with('succes', "Le tournoi « {$tournoi->nom} » a été supprimé.");
     }
 }
