@@ -12,3 +12,7 @@ Route::get('/equipes', function () {
     return view('equipes.index', compact('equipes'));
 });
 
+Route::get('/equipes/{equipe}', function (Equipe $equipe) {
+    $equipe->load(['joueurs', 'tournois']);
+    return view('equipes.show', compact('equipe'));
+});
