@@ -6,17 +6,17 @@
     <title>Ligue e-sport</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+<body class="bg-blanc text-encre min-h-screen flex flex-col">
 
-    <nav class="bg-slate-900 text-white">
+    <nav class="bg-nuit text-white">
         <div class="max-w-5xl mx-auto px-4 py-4 flex gap-6">
             <a href="/" class="font-bold">Ligue e-sport</a>
             <a href="/equipes"
-                class="{{ request()->is('equipes*') ? 'text-yellow-400 font-bold' : 'hover:text-yellow-200' }}">
+                class="{{ request()->is('equipes*') ? 'text-pervenche font-bold underline-offset-8' : 'hover:text-yellow-200' }}">
                 Équipes
             </a>
             <a href="{{ route('tournois.index') }}"
-                class="{{ request()->is('tournois*') ? 'text-yellow-400 font-bold' : 'hover:text-yellow-200' }}">
+                class="{{ request()->is('tournois*') ? 'text-pervenche font-bold underline-offset-8' : 'hover:text-yellow-200' }}">
                 Tournois
             </a>
         </div>
@@ -26,7 +26,7 @@
         {{ $slot }}
     </main>
 
-    <footer class="bg-slate-200 text-center text-sm py-3">
+    <footer class="bg-blanc text-center text-sm py-3">
         Requêtes SQL : {{ $compteurSql->total }}
     </footer>
 

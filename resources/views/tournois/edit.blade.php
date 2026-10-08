@@ -5,6 +5,6 @@
         @csrf
         @method('PATCH')
         @include('tournois._formulaire')
-        <button type="submit" class="bg-slate-900 text-white px-4 py-2 rounded">Enregistrer</button>
+        <button type="submit" class="bg-indigo text-white px-4 py-2 rounded">Enregistrer</button>
     </form>
 </x-layout>

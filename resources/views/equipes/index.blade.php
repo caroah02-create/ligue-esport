@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-3xl font-bold mb-6">Les équipes</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">Les équipes</h1>
 
     @forelse ($equipes as $equipe)
         <x-carte-equipe :equipe="$equipe" />

@@ -1,11 +1,11 @@
 <x-layout>
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-3xl font-bold">Les tournois</h1>
-        <a href="{{ route('tournois.create') }}" class="bg-slate-900 text-white px-4 py-2 rounded">Nouveau tournoi</a>
+        <h1 class="text-3xl font-bold text-center">Les tournois</h1>
+        <a href="{{ route('tournois.create') }}" class="bg-nuit text-white px-4 py-2 rounded">Nouveau tournoi</a>
     </div>
 
     <table class="w-full bg-white shadow rounded">
-        <thead class="bg-slate-200 text-left">
+        <thead class="bg-pervenche text-left">
             <tr>
                 <th class="p-3">Tournoi</th>
                 <th class="p-3">Jeu</th>

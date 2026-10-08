@@ -4,6 +4,6 @@
     <form method="POST" action="{{ route('tournois.store') }}" class="bg-white p-6 rounded shadow">
         @csrf
         @include('tournois._formulaire')
-        <button type="submit" class="bg-slate-900 text-white px-4 py-2 rounded">Créer le tournoi</button>
+        <button type="submit" class="bg-indigo text-white px-4 py-2 rounded">Créer le tournoi</button>
     </form>
 </x-layout>
